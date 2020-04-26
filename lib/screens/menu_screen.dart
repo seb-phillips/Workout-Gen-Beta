@@ -85,6 +85,20 @@ class _MenuScreenState extends State<MenuScreen> {
                 print('Strength Pressed');
               },
             ),
+            RaisedButton(
+              elevation: 100.0,
+              color: kButtonAndBarColour,
+              child: Text(
+                'CUSTOM WORKOUT',
+                style: kTitleStyle,
+              ),
+              onPressed: () {
+                setState(() {
+                  Navigator.pushNamed(context, '/exerciseList');
+                  print('CUSTOM Pressed');
+                });
+              },
+            ),
             SliderTheme(
               data: SliderTheme.of(context).copyWith(
                 inactiveTrackColor: Color(0xFF8D8E98),
