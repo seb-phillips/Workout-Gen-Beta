@@ -8,18 +8,15 @@ import 'package:flutterworkouta/models/exercise.dart';
 class DatabaseHelper {
   static DatabaseHelper _databaseHelper;
   static Database _database;
-
   String exerciseTable = 'exercise_table';
   String colId = 'id';
   String title = 'title';
 
   DatabaseHelper._createInstance();
-
   factory DatabaseHelper() {
     if (_databaseHelper == null) {
       _databaseHelper = DatabaseHelper._createInstance();
     }
-
     return _databaseHelper;
   }
 

@@ -5,6 +5,8 @@ import 'package:flutterworkouta/functions/generate_cardio.dart';
 import '../constants.dart';
 import 'strength_screen.dart';
 import '../functions/generate_strength.dart';
+import 'custom_workout_screen.dart';
+import 'package:flutterworkouta/functions/generate_custom.dart';
 
 class MenuScreen extends StatefulWidget {
   @override
@@ -90,6 +92,28 @@ class _MenuScreenState extends State<MenuScreen> {
               color: kButtonAndBarColour,
               child: Text(
                 'CUSTOM WORKOUT',
+                style: kTitleStyle,
+              ),
+              onPressed: () {
+                FeedDifficulty customWorkout =
+                    FeedDifficulty(difficulty: difficulty);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CustomWorkoutScreen(
+                      customDifficulty: customWorkout.checkDifficulty(),
+                    ),
+                  ),
+                );
+//                Navigator.pushNamed(context, '/strength');
+                print('Custom Pressed');
+              },
+            ),
+            RaisedButton(
+              elevation: 100.0,
+              color: kButtonAndBarColour,
+              child: Text(
+                'CUSTOM EXERCISES',
                 style: kTitleStyle,
               ),
               onPressed: () {

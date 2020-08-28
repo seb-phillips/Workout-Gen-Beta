@@ -88,12 +88,21 @@ class CardioScreen extends StatelessWidget {
             BottomButton(
               buttonTitle: 'NEW WORKOUT',
               onTap: () {
-                Navigator.pop(context);
-//                GenerateWorkout cardWorkout = GenerateWorkout();
-////                Navigator.push(context, MaterialPageRoute(
-////                  builder: (context) =>
-////                  cardioResult:
-//                cardWorkout.checkDifficulty();
+                // Navigator.pop(context);
+                //NEED TO UPDATE STATE AND HAVE NEW DATA FOR CARDIO SCREEN
+                GenerateCardio generateCardio = GenerateCardio();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => CardioScreen(
+                            cardioDifficulty: cardioDifficulty,
+                            cardioWorkout1: generateCardio.cExerciseOne(),
+                            cardioWorkout2: generateCardio.cExerciseTwo(),
+                            cardioWorkout3: generateCardio.cExerciseThree(),
+                            cardioWorkout4: generateCardio.cExerciseFour(),
+                            cardioWorkout5: generateCardio.cExerciseFive(),
+                          )),
+                );
               },
             ),
           ],

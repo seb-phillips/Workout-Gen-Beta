@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutterworkouta/models/exercise.dart';
 import 'package:flutterworkouta/utils/database_helper.dart';
 import 'package:sqflite/sqflite.dart';
+import 'dart:math';
 
 class ExerciseList extends StatefulWidget {
   @override
@@ -31,6 +32,7 @@ class ExerciseListState extends State<ExerciseList> {
         body: getExerciseListView(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
+            printExercises();
             debugPrint('FAB clicked');
             navigateToDetail(Exercise(''), 'Add Exercise');
           },
@@ -111,5 +113,10 @@ class ExerciseListState extends State<ExerciseList> {
         });
       });
     });
+  }
+
+  void printExercises() async {
+    databaseHelper.initializeDatabase();
+    print(await databaseHelper.getExerciseMapList());
   }
 }
